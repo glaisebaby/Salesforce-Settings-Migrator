@@ -4,6 +4,10 @@
 
 It was designed to keep the spirit of the existing migration runbook while removing project-specific hard-coded configuration. Instead of relying on predefined JSON files, the extension discovers migratable components directly from the selected source org at runtime.
 
+## Marketplace
+
+[Install Salesforce Settings Migrator from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=glaisebaby.sf-settings-migrator)
+
 ## Connect with the developer
 
 [Connect with the developer](https://www.linkedin.com/in/glaisebaby)
