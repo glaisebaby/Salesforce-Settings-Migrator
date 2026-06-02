@@ -1,0 +1,104 @@
+{
+  "name": "sf-settings-migrator",
+  "displayName": "Salesforce Settings Migrator",
+  "description": "A VS Code extension that discovers and migrates Salesforce custom settings, custom metadata records, named credentials, and external credentials between authenticated orgs.",
+  "version": "0.1.6",
+  "publisher": "glaisebaby",
+  "author": "Glaise Baby",
+  "icon": "assets/icon.png",
+  "homepage": "https://www.linkedin.com/in/glaisebaby",
+  "sponsor": {
+    "url": "https://www.linkedin.com/in/glaisebaby"
+  },
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "salesforce",
+    "salesforce-cli",
+    "sf",
+    "sfdx",
+    "vscode",
+    "vs-code",
+    "vscode-extension",
+    "migration",
+    "migrator",
+    "deployment",
+    "deploy",
+    "metadata",
+    "metadata-api",
+    "custom-settings",
+    "custom-metadata",
+    "custom-metadata-types",
+    "custom-metadata-records",
+    "named-credentials",
+    "external-credentials",
+    "credentials",
+    "org-migration",
+    "org-to-org",
+    "sandbox",
+    "production",
+    "salesforce-admin",
+    "admin-tools",
+    "devops",
+    "release-management",
+    "data-migration",
+    "settings-migration"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:sfSettingsMigrator.open",
+    "onCommand:sfSettingsMigrator.refresh",
+    "onView:sfSettingsMigrator.sidebarView"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "sfSettingsMigrator",
+          "title": "Salesforce Settings Migrator",
+          "icon": "assets/activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "sfSettingsMigrator": [
+        {
+          "id": "sfSettingsMigrator.sidebarView",
+          "name": "Salesforce Settings Migrator",
+          "type": "webview"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "sfSettingsMigrator.open",
+        "title": "Salesforce Settings Migrator: Open"
+      },
+      {
+        "command": "sfSettingsMigrator.refresh",
+        "title": "Salesforce Settings Migrator: Refresh Orgs"
+      },
+      {
+        "command": "sfSettingsMigrator.openFromSidebar",
+        "title": "Salesforce Settings Migrator: Open Workspace"
+      }
+    ]
+  },
+  "scripts": {
+    "check": "node -c src/extension.js && node -c src/salesforceCli.js && node -c src/migrationEngine.js && node -c src/webviewHtml.js && node -c media/main.js && node -c scripts/migrate-location-group.js",
+    "migrate:location-group": "node scripts/migrate-location-group.js",
+    "package": "vsce package --allow-missing-repository"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "2.32.0"
+  },
+  "overrides": {
+    "cheerio": "1.0.0-rc.12"
+  }
+}
